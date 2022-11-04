@@ -1,20 +1,20 @@
 from . import ALIVE_NAME, jepiq, edit_or_reply
 import telethon
 import asyncio
-@jepiq.on(events.NewMessage(outgoing=True, pattern=r"\.بخشيش وعد (.*)"))
+@jepiq.on(admin_cmd(pattern=r"\.بخشيش وعد (.*)"))
 async def _(event):
     for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
         chat = event.chat_id
         await jepiq.send_message(chat,'بخشيش')
         await asyncio.sleep(605)
-@jepiq.on(events.NewMessage(outgoing=True, pattern=r"\.راتب وعد (.*)"))
+@jepiq.on(admin_cmd(pattern=r"\.راتب وعد (.*)"))
 async def _(event):
     for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
         chat = event.chat_id
         await jepiq.send_message(chat,'راتب')
         await asyncio.sleep(605)
         
-@jepiq.on(events.NewMessage(outgoing=True, pattern=r"\.استثمار وعد (.*)"))
+@jepiq.on(admin_cmd(pattern=r"\.استثمار وعد (.*)"))
 async def _(event):
         for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
             
