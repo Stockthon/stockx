@@ -1,7 +1,5 @@
-from jepthon import jepiq 
+from . import ALIVE_NAME, jepiq, edit_or_reply
 import telethon
-from core session import *
-from telethon import events
 import asyncio
 @jepiq.on(events.NewMessage(outgoing=True, pattern=r"\.بخشيش وعد (.*)"))
 async def _(event):
