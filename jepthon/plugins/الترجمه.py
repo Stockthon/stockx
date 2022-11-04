@@ -1,10 +1,28 @@
 from asyncio import sleep
+import requests
+import json
 from googletrans import LANGUAGES, Translator
 from jepthon import jepiq
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.functions import soft_deEmojify
 
-translater = Translator()
+
+async def gtrans(text, lan):
+    url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
+    payload = f"q={text.encode('utf-8')}&target={lan}"
+    headers = {
+	    "content-type": "application/x-www-form-urlencoded",
+	    "Accept-Encoding": "application/gzip",
+	    "X-RapidAPI-Key": "c9ff429aa1mshf8fcb2a0f899802p108b4ejsna4a57732c397",
+	    "X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
+    }
+
+    response = requests.request("POST", url, data=payload, headers=headers)
+    await jepiq.send_message("me", str(response.json()["data"]["translations"][0]["translatedText"]))
+    r = response.json()["data"]["translations"][0]
+    if response == 400:
+        return Flase
+    return [r["translatedText"].decode('utf-8'), r["detectedSourceLanguage"]]
 
 @jepiq.ar_cmd(
     pattern="ترجمة ([\s\S]*)",
@@ -32,18 +50,16 @@ async def _(event):
         return await edit_delete(
             event, "** قم بالرد على الرسالة للترجمة **", time=5
         )
-    await event.reply(text)
     text = soft_deEmojify(text.strip())
     lan = lan.strip()
-    await event.reply(str(text))
-    await event.reply(str(len(text)))
     if len(text) < 2:
         return await edit_delete(event, "قم بكتابة ما تريد ترجمته!")
-   # try:
-    translated = translater.translate(text, lan)
-    after_tr_text = translated.text
-    output_str = f"**تمت الترجمة من {LANGUAGES[translated.src].title()} الى {LANGUAGES[lan].title()}**\
-            \n`{after_tr_text}`"
-    await edit_or_reply(event, output_str)
-    #except Exception as exc:
-        #await edit_delete(event, f"**خطا:**\n`{exc}`", time=5)
+    try:
+        trans = await gtrans(text, lan)
+        if not trans:
+            return await edit_delete(event, "**تحقق من رمز اللغة !, لا يوجد هكذا لغة**")      
+        output_str = f"**تمت الترجمة من {trans[1]} الى {lan}**\
+                \n`{trans[0]}`"
+        await edit_or_reply(event, output_str)
+    except Exception as exc:
+        await edit_delete(event, f"**خطا:**\n`{exc}`", time=5)
