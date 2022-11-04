@@ -1,3 +1,4 @@
+from jepthon import jepiq
 from . import ALIVE_NAME, jepiq, edit_or_reply
 import telethon
 import asyncio
