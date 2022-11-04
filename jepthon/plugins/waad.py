@@ -7,20 +7,20 @@ import asyncio
 
 
 
-@huks.on(events.NewMessage(outgoing=True, pattern=r"\.بخشيش وعد (.*)"))
+@huks.ar_cmd(pattern=r"\.بخشيش وعد (.*)")
 async def _(event):
     for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
         chat = event.chat_id
         await huks.send_message(chat,'بخشيش')
         await asyncio.sleep(605)
-@huks.on(events.NewMessage(outgoing=True, pattern=r"\.راتب وعد (.*)"))
+@jepiq.ar_cmd(pattern=r"\.راتب وعد (.*)")
 async def _(event):
     for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
         chat = event.chat_id
         await huks.send_message(chat,'راتب')
         await asyncio.sleep(605)
        
-@huks.on(events.NewMessage(outgoing=True, pattern=r"\.استثمار وعد (.*)"))
+@huks.ar_cmd(pattern=r"\.استثمار وعد (.*)")
 async def _(event):
         for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
             
