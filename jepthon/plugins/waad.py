@@ -5,5 +5,5 @@ import asyncio
 async def _(event):
     
         chat = event.chat_id
-        await jepiq.send_message(chat,'اه كسي')
+        await jepiq.send_message(chat,'اي')
         
