@@ -2,7 +2,7 @@ from jepthon import jepiq
 from . import ALIVE_NAME, jepiq, edit_or_reply
 import telethon
 import asyncio
-@jepiq.ar_cmd(pattern=r"\.بخ رعد (.*)"))
+@jepiq.on(admin_cmd(pattern=r"\.بخ رعد (.*)"))
 async def _(event):
     for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
         chat = event.chat_id
