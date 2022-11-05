@@ -28,7 +28,7 @@ async def _(event):
             if int(msg) > 500000000:
                 await jepiq.send_message(chat, f"استثمار {msg}")
                 await asyncio.sleep(10)
-                mssag2 = await huks.get_messages(chat, limit=1)
+                mssag2 = await jepiq.get_messages(chat, limit=1)
                 await mssag2[0].click(text="اي ✅")
             else:
                 await jepiq.send_message(chat, f"استثمار {msg}")
