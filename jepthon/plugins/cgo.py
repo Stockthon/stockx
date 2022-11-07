@@ -13,6 +13,8 @@ async def _(event):
         await jepiq.send_message(chat,'راتب')
         await asyncio.sleep(605)
         
+#تخمط بدون ماتذكر حقوق انيج اختك 
+#RICKTHON
 @jepiq.on(admin_cmd(pattern=r"\وعد اس (.*)"))
 async def _(event):
         for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
