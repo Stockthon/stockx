@@ -1,3 +1,6 @@
+#----------P_J_I-RICKTHON-
+#شعندك بلملف تريد تخمط؟
+#تخمط وماتذكر حقوق انت اكبر فرخ
 from ..core.session import jepiq
 import asyncio
 @jepiq.on(admin_cmd(pattern=r"\وعد بخ (.*)"))
