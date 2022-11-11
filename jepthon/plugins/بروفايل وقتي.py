@@ -12,6 +12,7 @@ import shutil
 import time
 from datetime import datetime
 from telethon import events
+from ALJoker import get_string
 from telethon.errors import ChatAdminRequiredError
 from PIL import Image, ImageDraw, ImageFont
 from pySmartDL import SmartDL
@@ -258,7 +259,7 @@ async def _(event):
     if gvarstatus("autoname") is not None and gvarstatus("autoname") == "true":
         return await edit_delete(event, "**الاسـم الـوقتي شغـال بالأصـل 🧸♥**")
     addgvar("autoname", True)
-    await edit_delete(event, "**تم تفـعيل الاسـم الـوقتي بنجـاح ✓**")
+    await edit_delete(event, "**تم تفـعيل اسـم الـوقتي بنجـاح ✓**")
     await autoname_loop()
 
 
