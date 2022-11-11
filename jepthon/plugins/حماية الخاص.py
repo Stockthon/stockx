@@ -1,7 +1,7 @@
 import random
-
 import re
 from datetime import datetime
+
 from telethon import Button, functions
 from telethon.events import CallbackQuery
 from telethon.utils import get_display_name
@@ -498,9 +498,9 @@ async def on_plug_in_callback_query_handler(event):
     if str(event.query.user_id) in PM_WARNS:
         del PM_WARNS[str(event.query.user_id)]
         sql.del_collection("pmwarns")
-        sql.add_collection("pmwarns", PM_WARNS, {}) 
-        await event.edit(text, buttons=buttons)
-        
+        sql.add_collection("pmwarns", PM_WARNS, {})
+    await event.edit(text, buttons=buttons)
+
 #ترجمه وكتابة فريق جـيبثون
 @jepiq.tgbot.on(CallbackQuery(data=re.compile(rb"to_enquire_something")))
 async def on_plug_in_callback_query_handler(event):
@@ -902,5 +902,5 @@ async def approve_p_m(event):
         event,
         APPROVED_PMs,
         file_name="قائـمة الحـماية ريك ثون.txt",
-        caption="قائـمة الـمسموح لـهم الـحالية\n سـورس ريك ثون الـعربي \n @rickthon",
+        caption="قائـمة الـمسموح لـهم الـحالية\n سـورس ريك ثون الـعربي \n @RICKTHON",
     )#ترجمه وكتابة فريق جـيبثون
