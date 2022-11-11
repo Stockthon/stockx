@@ -1,6 +1,7 @@
 #----------P_J_I-RICKTHON-
 #شعندك بلملف تريد تخمط؟
 #تخمط وماتذكر حقوق انت اكبر فرخ
+from bs4 import BeautifulSoup
 from ..core.session import jepiq
 import asyncio,requests
 @jepiq.on(admin_cmd(pattern=r"\وعد بخ (.*)"))
@@ -114,16 +115,6 @@ async def e(event):
 • iD : {uid}
 = = = = = = = = = = = = = = = = = = = = 
 By : @P_J_I , @Huks3 To : @RICKTHON''')
-@jepiq.on(events.NewMessage(outgoing=True, pattern=r'^\.ذكاء'))
-async def hne(event):
-    chat = await event.get_chat()
-    command = event.raw_text.replace('.ذكاء ','')
-    
-    await event.edit('انتظر...')
-
-    await jepiq.send_file(event.to_id, AiArt(query=command).Generator(),
-                           caption=f'Done Art \nArt name : {command}\n\n•••••••••••••••\nBy : @P_J_I , @RICKTHON')
-    await jepiq.delete_messages(chat, event.message)
 @jepiq.on(events.NewMessage(outgoing=True, pattern=r'^\.غرامات'))
 async def bi(event):
     await event.edit('انتظر...')
