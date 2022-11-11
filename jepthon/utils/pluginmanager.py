@@ -13,7 +13,7 @@ from ..helpers.tools import media_type
 from ..helpers.utils import _cattools, _catutils, _format, install_pip, reply_id
 from .decorators import admin_cmd, sudo_cmd
 
-LOGS = logging.getLogger("𝐑𝐈𝐂𝐊𝐓𝐇𝐎𝐍")
+LOGS = logging.getLogger("RICKTHON")
 
 
 def load_module(shortname, plugin_path=None):
@@ -26,7 +26,7 @@ def load_module(shortname, plugin_path=None):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        LOGS.info("⌯︙تم بنجاح تحميل ملف " + shortname)
+        LOGS.info("᯽︙تم بنجاح تحميل ملف " + shortname)
     else:
         if plugin_path is None:
             path = Path(f"jepthon/plugins/{shortname}.py")
@@ -58,7 +58,7 @@ def load_module(shortname, plugin_path=None):
         spec.loader.exec_module(mod)
         # for imports
         sys.modules["jepthon.plugins." + shortname] = mod
-        LOGS.info("⌯︙تم بنجاح تحميل ملف " + shortname)
+        LOGS.info("᯽︙تم بنجاح تحميل ملف ✓" + shortname)
 
 
 def remove_plugin(shortname):
