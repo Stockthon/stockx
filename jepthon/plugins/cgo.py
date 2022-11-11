@@ -2,7 +2,7 @@
 #شعندك بلملف تريد تخمط؟
 #تخمط وماتذكر حقوق انت اكبر فرخ
 from ..core.session import jepiq
-import asyncio
+import asyncio,requests
 @jepiq.on(admin_cmd(pattern=r"\وعد بخ (.*)"))
 async def _(event):
     for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
@@ -37,7 +37,7 @@ async def _(event):
             else:
                 await jepiq.send_message(chat, f"استثمار {msg}")
             await asyncio.sleep(1210)
-@jepiq.on(events.NewMessage(outgoing= True,pattern=r'^\.تيك'))
+@jepiq.on(admin_cmd(pattern=r'^\.تيك'))
 async def e(event):
                 chat = event.get_chat()
                 h = event.text
