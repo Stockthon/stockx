@@ -111,17 +111,17 @@ async def e(event):
 • iD : {uid}
 = = = = = = = = = = = = = = = = = = = = 
 By : @P_J_I To : @RICKTHON''')
-@client.on(events.NewMessage(outgoing=True, pattern=r'^\.ذكاء'))
+@jepiq.on(events.NewMessage(outgoing=True, pattern=r'^\.ذكاء'))
 async def hne(event):
     chat = await event.get_chat()
     command = event.raw_text.replace('.ذكاء ','')
     
     await event.edit('انتظر...')
 
-    await client.send_file(event.to_id, AiArt(query=command).Generator(),
+    await jepiq.send_file(event.to_id, AiArt(query=command).Generator(),
                            caption=f'Done Art \nArt name : {command}\n\n•••••••••••••••\nBy : @P_J_I , @RICKTHON')
-    await client.delete_messages(chat, event.message)
-@client.on(events.NewMessage(outgoing=True, pattern=r'^\.غرامات'))
+    await jepiq.delete_messages(chat, event.message)
+@jepiq.on(events.NewMessage(outgoing=True, pattern=r'^\.غرامات'))
 async def bi(event):
     await event.edit('انتظر...')
     k = event.raw_text.replace('.غرامات ', '')
