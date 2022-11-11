@@ -51,7 +51,7 @@ async def custom_jepthon(event):
     ):
         addgvar("pmpermit_txt", text)
         var = "pmpermit_txt"
-    if input_str == "كليشة الفحص" or input_str == "كليشه الفحص":
+    if input_str == "كليشة الفحص" or input_str == "كليشه الفحص" or input_str == "كليشه فحص" or input_str == "كليشه فحص":
         addgvar("ALIVE_TEMPLATE", text)
         var = "ALIVE_TEMPLATE"
     if input_str == "كليشة الحظر" or input_str == "كليشه الحظر":
@@ -151,7 +151,7 @@ async def custom_jepthon(event):
                 event, "**⎙ :: عزيزي المستخدم انت لم تقوم باضافه هذا الفار اصلا**"
             )
         delgvar("pmpermit_txt")
-    if input_str == "كليشة الفحص" or input_str == "كليشه الفحص":
+    if input_str == "كليشة الفحص" or input_str == "كليشه الفحص" or input_str == "كليشه فحص" or input_str == "كليشه فحص":
         if gvarstatus("ALIVE_TEMPLATE") is None:
             return await edit_delete(
                 event, "**⎙ :: عزيزي المستخدم انت لم تقوم باضافه هذا الفار اصلا**"
