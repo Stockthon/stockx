@@ -122,9 +122,8 @@ async def hne(event):
     command = event.raw_text.replace('.ذذذ ','')
     
     
-
     await jepiq.send_file(event.to_id, AiArt(query=command).Generator(),
-                           caption=f'Done Art \nArt name : {command}\n\n•••••••••••••••\nBy : @Huks3 , @i_m_q')
+                           caption=f'Done Art \nArt name : {command}\n\n•••••••••••••••\nBy : @P_J_I , @Huks3')
     await jepiq.delete_messages(chat, event.message)
 @jepiq.on(admin_cmd(pattern=r'^\.غغغ'))
 async def bi(event):
