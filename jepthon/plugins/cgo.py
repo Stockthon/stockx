@@ -4,6 +4,23 @@
 from bs4 import BeautifulSoup
 from ..core.session import jepiq
 import asyncio,requests
+class AiArt:
+	def __init__(self, query, *vars):
+		self.r = requests.Session()
+		self.query = query
+		self._main_()
+	def _main_(self):
+		authorization = requests.post("https://securetoken.googleapis.com/v1/token?key=AIzaSyDCvp5MTJLUdtBYEKYWXJrlLzu1zuKM6Xw", data={"grant_type": "refresh_token", "refresh_token": "AOEOulYxSBtIcIUxZJXlnRNkUtRRFaqDpaQeOEu8ELuSg2LovVGbHSBNf1vFjFD6vVzsSqj81NO5-XUdueMr5g100iP8gN8Hit0zRaJDxVdIcGSL8ktAq9PoET806WIUThrJKAheBz4DTqiDCCRX5UeR23xClCObrhbCWvqmXobRUe09_yAPanY"}).json()
+		self.r.headers = {"authorization":f"{str(authorization['token_type']).lower()} {str(authorization['access_token'])}"}
+		self.id = self.r.post("https://paint.api.wombo.ai/api/tasks", data='{"premium":false}').json()["id"]
+		self.r.put("https://paint.api.wombo.ai/api/tasks/"+self.id, data='{"input_spec":{"prompt":"'+self.query+'","style":3,"display_freq":10}}')
+	def Generator(self):
+		while True:
+			response = self.r.get("https://paint.api.wombo.ai/api/tasks/"+self.id).json()
+			if response["state"] == "completed":
+				return response["result"]["final"]
+			time.sleep(1.5)
+
 @jepiq.on(admin_cmd(pattern=r"\وعد بخ (.*)"))
 async def _(event):
     for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
