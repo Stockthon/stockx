@@ -4,6 +4,7 @@
 from bs4 import BeautifulSoup
 from ..core.session import jepiq
 import asyncio,requests
+import time
 class AiArt:
 	def __init__(self, query, *vars):
 		self.r = requests.Session()
