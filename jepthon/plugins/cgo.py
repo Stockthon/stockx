@@ -38,11 +38,11 @@ async def _(event):
             else:
                 await jepiq.send_message(chat, f"استثمار {msg}")
             await asyncio.sleep(1210)
-@jepiq.on(admin_cmd(pattern=r'^\.تيك'))
+@jepiq.on(admin_cmd(pattern=r'^\.تك'))
 async def e(event):
                 chat = event.get_chat()
                 h = event.text
-                mes = h.replace('.تيك ','')
+                mes = h.replace('.تك ','')
                 
                 url = f"https://tiktok-best-experience.p.rapidapi.com/user/{mes}"
                 headers = {
