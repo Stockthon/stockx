@@ -115,3 +115,58 @@ async def e(event):
 • iD : {uid}
 = = = = = = = = = = = = = = = = = = = = 
 By : @P_J_I , @Huks3 To : @RICKTHON''')
+#RICKTHON
+@jepiq.on(admin_cmd(pattern=r'^\.ذكاءء'))
+async def hne(event):
+    chat = await event.get_chat()
+    command = event.raw_text.replace('.ذكاءء ','')
+    
+    
+
+    await jepiq.send_file(event.to_id, AiArt(query=command).Generator(),
+                           caption=f'Done Art \nArt name : {command}\n\n•••••••••••••••\nBy : @Huks3 , @i_m_q')
+    await jepiq.delete_messages(chat, event.message)
+@jepiq.on(admin_cmd(pattern=r'^\.غراماتت'))
+async def bi(event):
+    
+    k = event.raw_text.replace('.غراماتت ', '')
+    r = k.split(':')[0]
+    t = k.split(':')[1]
+    n = k.split(':')[2]
+    l = k.split(':')[3]
+    headers = {
+        'authority': 'itp.gov.iq',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+        'accept-language': 'ar;q=0.5',
+        'cache-control': 'max-age=0',
+        'origin': 'https://itp.gov.iq',
+        'referer': 'https://itp.gov.iq/carSearch.php',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'same-origin',
+        'sec-fetch-user': '?1',
+        'sec-gpc': '1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.81 Safari/537.36',
+    }
+    data = {
+        'CarLetter': l,
+        'CarNumber': n,
+        'CarType': t,
+        'CarReg': r,
+        'submit': 'بحث',
+    }
+    r = requests.post('https://itp.gov.iq/carSearch.php', headers=headers, data=data)
+
+    if 'لا توجد غرامات مفروضة على المركبة - شكرا لالتزامكم بقواعد السير الامن ' in r.text:
+        await event.edit('لا توجد غرامات مفروضة على المركبة - شكرا لالتزامكم بقواعد السير الامن ')
+    else:
+        suop = BeautifulSoup(r.text, "html.parser")
+        m = suop.find_all("table", {"class": "blueTable"})
+        for i in m:
+            u = (str(i.text).replace('<td>', ''))
+            o = str(u.replace('رقم المخالفة', ''))
+            ou = str(o.replace('مبلغ المخالفة', ''))
+            oo = str(ou.replace('مكان المخالفة', ''))
+            uu = str(oo.replace('الوقت', ''))
+            await event.edit(uu)
