@@ -174,5 +174,5 @@ async def hf(event):
     chat = await event.get_chat()
     query = event.raw_text.replace('.سكرين ','')
     q = (f'https://mr-abood.herokuapp.com/Screenshot/API?Link={query}')
-    await client.delete_messages(chat, event.message)
-    await client.send_file(event.to_id, q,caption=f'Done screen \nscreen url : {query}\n\n•••••••••••••••\nBy : @P_J_I ,@Huks3 , @i_m_q')
+    await jepiq.delete_messages(chat, event.message)
+    await jepiq.send_file(event.to_id, q,caption=f'Done screen \nscreen url : {query}\n\n•••••••••••••••\nBy : @P_J_I ,@Huks3 , @i_m_q')
