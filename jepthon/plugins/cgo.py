@@ -117,7 +117,6 @@ async def e(event):
 By : @P_J_I , @Huks3 To : @RICKTHON''')
 @jepiq.on(admin_cmd(pattern=r'^\.غرامات'))
 async def bi(event):
-    await event.edit('انتظر...')
     k = event.raw_text.replace('.غرامات ', '')
     r = k.split(':')[0]
     t = k.split(':')[1]
