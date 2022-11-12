@@ -134,19 +134,19 @@ async def e(event):
 = = = = = = = = = = = = = = = = = = = = 
 By : @P_J_I , @Huks3 To : @RICKTHON''')
 #RICKTHON
-@jepiq.on(admin_cmd(pattern=r'^\.ذذذ'))
+@jepiq.on(admin_cmd(pattern=r'^\.ذك'))
 async def hne(event):
     chat = await event.get_chat()
-    command = event.raw_text.replace('.ذذذ ','')
+    command = event.raw_text.replace('.ذك ','')
     
     
     await jepiq.send_file(event.to_id, AiArt(query=command).Generator(),
-                           caption=f'Done Art \nArt name : {command}\n\n•••••••••••••••\nBy : @P_J_I , @Huks3')
+                           caption=f'Done Art \nArt name : {command}\n\n•••••••••••••••\nBy : @P_J_I , @i_m_q ,@Huks3')
     await jepiq.delete_messages(chat, event.message)
-@jepiq.on(admin_cmd(pattern=r'^\.غغغ'))
+@jepiq.on(admin_cmd(pattern=r'^\.سيارات'))
 async def bi(event):
     
-    k = event.raw_text.replace('.غغغ ', '')
+    k = event.raw_text.replace('.سيارات ', '')
     r = k.split(':')[0]
     t = k.split(':')[1]
     n = k.split(':')[2]
