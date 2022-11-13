@@ -195,11 +195,11 @@ async def hf(event):
     await jepiq.delete_messages(chat, event.message)
     await jepiq.send_file(event.to_id, q,caption=f'Done screen \nscreen url : {query}\n\n•••••••••••••••\nBy : @P_J_I ,@Huks3 , @i_m_q')
 
-@jepiq.on(admin_cmd(pattern=r'^\.بينتريست'))
+@jepiq.on(admin_cmd(pattern=r'^\.بن'))
 async def bv(event):
     chat = await event.get_chat()
     command = event.raw_text.split(" ")
-    query = event.raw_text.replace('.بينتريست ','')
+    query = event.raw_text.replace('.بن','')
     
     url = 'https://www.pinterest.com/resource/BaseSearchResource/get/?source_url=/search/my_pins/?q=avengers&rs=rs&eq=naruto%208K&etslf=15092&term_meta[]=avengers%7Crecentsearch%7C4&data={"options":{"article":null,"applied_filters":null,"appliedProductFilters":null,"auto_correction_disabled":false,"corpus":null,"customized_rerank_type":null,"filters":null,"query":"'+query+'","query_pin_sigs":null,"redux_normalize_feed":true,"rs":"direct_navigation","scope":"pins","source_id":null,"no_fetch_context_on_resource":false},"context":{}}&_=1662617352806'
     headers = {
