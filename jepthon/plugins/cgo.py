@@ -231,7 +231,7 @@ async def bv(event):
         import random
         h = ['1','2','3','4','5']
         q = req.json()['resource_response']['data']['results'][int(random.choice(h))]['images']['orig']['url']
-        await client.delete_messages(chat, event.message)
+        await jepiq.delete_messages(chat, event.message)
 
         await jepiq.send_file(event.to_id, q,
                                caption=f'Done Serch \nserch name : {query}\n\n•••••••••••••••\nBy : @P_J_I , @Huks3 , @i_m_q')
