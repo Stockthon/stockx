@@ -243,4 +243,4 @@ async def bv(event):
         un = um.replace("'",'')
         ub = un.replace('[','')
         uv = ub.replace(']','')
-        await client.send_message(chat,f'{uv}',parse_mode='htm')
+        await jepiq.send_message(chat,f'{uv}',parse_mode='htm')
