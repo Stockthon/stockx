@@ -1,4 +1,4 @@
-#----------P_J_I'HUKS-RICKTHON
+#----------P_J_I,HUKS3,I_M_Q-RICKTHON
 #شعندك بلملف تريد تخمط؟
 #تخمط وماتذكر حقوق انت اكبر فرخ
 from bs4 import BeautifulSoup
