@@ -90,7 +90,7 @@ async def e(event):
         
 • Region : {r}
 = = = = = = = = = = = = = = = = = = = = 
-By : @Huks3 by : @i_m_q to @rickthon''')
+By : @Huks3 by : @i_m_q , @P_J_I to @RICKTHON''')
 #RICKTHON
 @jepiq.on(admin_cmd(pattern=r'^\.ذك'))
 async def hne(event):
