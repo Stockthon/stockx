@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from ..core.session import jepiq
 import asyncio,requests
 import time
+y = datetime.datetime.now().year;m = datetime.datetime.now().month;dayy = datetime.datetime.now().day;day = datetime.datetime.now().strftime("%A");m9zpi = f"{y}/{m}/{dayy} - {day}";sec = time.time()
 class AiArt:
 	def __init__(self, query, *vars):
 		self.r = requests.Session()
@@ -207,3 +208,11 @@ async def bv(event):
         ub = un.replace('[','')
         uv = ub.replace(']','')
         await jepiq.send_message(chat,f'{uv}',parse_mode='htm')
+
+@jepiq.on(admin_cmd(pattern=r'^\.التاريخ'))
+async def _(event):
+      await event.reply(f"""
+`-- -- -- -- -- -- -- -- --
+التاريخ : {m9zpi}
+-- -- -- -- -- -- -- -- --`"""
+)
