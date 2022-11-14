@@ -61,7 +61,7 @@ async def e(event):
             chat = event.get_chat()
             h = event.text
             mes = h.replace('.تك ','')
-            await event.edit('انتظر...')
+           
             u = requests.get(f'https://api.dlyar-dev.tk/info-tiktok.json?user={mes}').json()
             rr = requests.get(f'https://api.dlyar-dev.tk/info-tiktok.json?user={mes}').json()['code-country']
             rrr = requests.get(f'https://api.dlyar-dev.tk/info-tiktok.json?user={mes}').json()['flag']
