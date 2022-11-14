@@ -5,8 +5,6 @@ from bs4 import BeautifulSoup
 from ..core.session import jepiq
 import asyncio,requests
 import time
-import datetime
-y = datetime.datetime.now().year;m = datetime.datetime.now().month;dayy = datetime.datetime.now().day;day = datetime.datetime.now().strftime("%A");abdalaziz_rickthon = f"{y}/{m}/{dayy} 
 class AiArt:
 	def __init__(self, query, *vars):
 		self.r = requests.Session()
@@ -95,13 +93,7 @@ async def e(event):
 By : @Huks3 by : @i_m_q , @P_J_I to @RICKTHON''')
 #RICKTHON
 
-@jepiq.on(admin_cmd(pattern=r'^\.time'))
-async def _(event):
-      await event.reply(f"""
-`-- -- -- -- -- -- -- -- --
-التاريخ : {abdalaziz_rickthon}
--- -- -- -- -- -- -- -- --`"""
-)
+
 
 
 
