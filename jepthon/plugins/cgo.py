@@ -56,83 +56,41 @@ async def _(event):
             else:
                 await jepiq.send_message(chat, f"استثمار {msg}")
             await asyncio.sleep(1210)
-@jepiq.on(admin_cmd(pattern=r'^\.تك'))
+@jepiq.on(admin_cmd(pattern=r"\tik (.*)"))
 async def e(event):
-                chat = event.get_chat()
-                h = event.text
-                mes = h.replace('.تك ','')
-                
-                url = f"https://tiktok-best-experience.p.rapidapi.com/user/{mes}"
-                headers = {
-		"x-rapidapi-key":"d0cbbe1f79mshe3c74080d9d0da5p1de4ddjsn21db44140e77",
-		"x-rapidapi-host":"tiktok-best-experience.p.rapidapi.com",
-		"User-Agent":"TikTracker/1.2 (com.markuswu.TikTracker; build:1; iOS 14.4.0) Alamofire/5.4.4"
-	}
-                r = (requests.get(url,headers=headers).json())
-                
-                if r['status'] == 'ok':
-                 
-                  insta = ''
-                  uid = ''
-                  name=''
-                  yc=''
-                  bio=''
-                  h=''
-                  fg=''
-                  fs=''
-                  p= r['data']['avatar_medium']['url_list'][0]
-                  try:
-                      uid = r["data"]["uid"]
-                  except:
-                      uid='not found'
-                  try:
-                      yc = r["data"]["youtube_channel_id"]
-                  except:
-                      yc='not found'
-                  try:
-                      h = r["data"]["total_favorited"]
-                  except:
-                      h='0'
-                  try:
-                      fg = r["data"]["following_count"]
-                  except:
-                      fg='0'
-                  try:
-                      fs = r["data"]["follower_count"]
-                  except:
-                      fs='0'
-                  try:
-                      name = r["data"]["nickname"]
-                  except:
-                      name='not found'
-                  try:
-                      bio = r["data"]["signature"]
-                  except:
-                      bio = 'not found'
-    
-                  try:
-                      insta = r["data"]["ins_id"]
-                  except:
-                      insta = 'not found'
+            chat = event.get_chat()
+            h = event.text
+            mes = h.replace('.تيك ','')
+            await event.edit('انتظر...')
+            u = requests.get(f'https://api.dlyar-dev.tk/info-tiktok.json?user={mes}').json()
+            rr = requests.get(f'https://api.dlyar-dev.tk/info-tiktok.json?user={mes}').json()['code-country']
+            rrr = requests.get(f'https://api.dlyar-dev.tk/info-tiktok.json?user={mes}').json()['flag']
+            rrrr = requests.get(f'https://api.dlyar-dev.tk/info-tiktok.json?user={mes}').json()['country']
+            r = f'{rrrr} - {rr} , {rrr}'
+            p = str(u['img'])
+            fs = u['followers']
+            fg = u['following']
+            h = u['likes']
+            name = u['name']
+            id = u['uid']
            
-                await event.edit(f'''
+            await event.edit(f'''
+    
+                        
 • Name : {name}
-
+        
 • Followers : {fs}
-
+        
 • Following : {fg}
-
-• Instagram : {insta}
-
-• Youtube Chanel : {yc}
-
+        
 • Likes : {h}
+        
+• iD : {id}
 
-• Bio : {bio}
-
-• iD : {uid}
+        
+• Region : {r}
 = = = = = = = = = = = = = = = = = = = = 
-By : @P_J_I , @Huks3 To : @RICKTHON''')
+By : @Huks3 by : @i_m_q to @rickthon''')
 #RICKTHON
 @jepiq.on(admin_cmd(pattern=r'^\.ذك'))
 async def hne(event):
