@@ -2,6 +2,8 @@
 #شعندك بلملف تريد تخمط؟
 #تخمط وماتذكر حقوق انت اكبر فرخ
 from bs4 import BeautifulSoup
+import sys
+from io import StringIO
 from ..core.session import jepiq
 import asyncio,requests
 import time
