@@ -37,6 +37,21 @@ async def _(event):
         
 #تخمط بدون ماتذكر حقوق انيج اختك 
 #RICKTHON
+@jepiq.on(admin_cmd(pattern=r"\بايثون (.*)"))
+async def _(event):
+    chat = await event.get_chat()
+    code = event.raw_text.replace('.بايثون ','')
+    try:
+	        old_stdout = sys.stdout
+	        redirected_output = sys.stdout = StringIO()
+	        exec(code)
+	        sys.stdout = old_stdout
+	        try:
+	            await event.edit(redirected_output.getvalue().strip())
+	        except Exception as e:
+	            await event.edit(e)
+    except Exception as e:
+        await event.edit(e)
 @jepiq.on(admin_cmd(pattern=r"\وعد اس (.*)"))
 async def _(event):
         for i in range(int("".join(event.text.split(maxsplit=2)[2:]).split(" ", 2)[0])):
