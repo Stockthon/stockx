@@ -19,7 +19,7 @@ from . import mention
 plugin_category = "utils"
 
 #كتـابة وتعـديل:  @lMl10l
-@jepiq.on(admin_cmd(pattern=f"بنك(?:\s|$)([\s\S]*)"))
+@jepiq.on(admin_cmd(pattern=f"ping(?:\s|$)([\s\S]*)"))
     
 async def amireallyalive(event):
     "للتـأكد من ان البـوت يعـمـل"
