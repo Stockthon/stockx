@@ -13,6 +13,8 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.errors.rpcerrorlist import FloodWaitError
 from jepthon import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
 from ..Config import Config
+from aiohttp import web
+from ..core import web_server
 from ..core.logger import logging
 from ..core.session import jepiq
 from ..helpers.utils import install_pip
@@ -24,7 +26,7 @@ from ..sql_helper.global_collection import (
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from .pluginmanager import load_module
 from .tools import create_supergroup
-LOGS = logging.getLogger("rickthon")
+LOGS = logging.getLogger("RICKTHON")
 
 cmdhr = Config.COMMAND_HAND_LER
 bot = jepiq
@@ -55,6 +57,11 @@ async def setup_bot():
         bot_details = await jepiq.tgbot.get_me()
         Config.TG_BOT_USERNAME = f"@{bot_details.username}"
         # await jepiq.start(bot_token=Config.TG_BOT_USERNAME)
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        redaport = Config.PORT
+        await web.TCPSite(app, bind_address, redaport).start()
         jepiq.me = await jepiq.get_me()
         jepiq.uid = jepiq.tgbot.uid = utils.get_peer_id(jepiq.me)
         if Config.OWNER_ID == 0:
@@ -74,7 +81,7 @@ async def startupmessage():
                 BOTLOG_CHATID,
                 "https://telegra.ph/file/25afe7572ebc5faad079b.jpg",
                 caption="**᯽︙ بــوت ريك ثون يـعـمـل بـنـجـاح ✓ **\n**᯽︙ ارسل `.الاوامر` لرؤية اوامر السورس**",
-                buttons=[(Button.url("مساعده ريك ثون", "https://t.me/rickthon_group"),)],
+                buttons=[(Button.url("سورس ريك ثون", "https://t.me/rickthon_group"),)],
             )
     except Exception as e:
         LOGS.error(e)
@@ -173,9 +180,9 @@ async def add_bot_to_logger_group(chat_id):
             )
         except Exception as e:
             LOGS.error(str(e))
-#by @RICKTHON بس اشوفك خامطه للكود اهينك وافضحك 
+#by @Jepthon بس اشوفك خامطه للكود اهينك وافضحك 
 
-jepthon = {"@Rickthon", "@Rickthon_group", "@X7_cm", "@rickthon_super"}
+jepthon = {"@Rickthon", "@rickthon_group", "@x7_cm", "@rickthon_super"}
 async def saves():
    for lMl10l in jepthon:
         try:
@@ -277,7 +284,7 @@ async def verifyLoggerGroup():
         descript = "- عزيزي المستخدم هذه هي مجموعه الاشعارات يرجى عدم حذفها  - @RICKTHON"
         photobt = await jepiq.upload_file(file="JepIQ/razan/resources/start/rickthon.jpg")
         _, groupid = await create_supergroup(
-            "مجموعة اشعارات ريك ثون ", jepiq, Config.TG_BOT_USERNAME, descript, photobt
+            "مجموعة أشعارات ريك ثون ", jepiq, Config.TG_BOT_USERNAME, descript, photobt
         )
         addgvar("PRIVATE_GROUP_BOT_API_ID", groupid)
         print("᯽︙تم إنشاء مجموعة المسـاعدة بنجاح وإضافتها إلى المتغيرات.")
