@@ -1,5 +1,3 @@
-#Jepthon ©
-#By Reda 
 from imdb import Cinemagoer
 import requests
 from html_telegraph_poster.upload_images import upload_image
@@ -21,7 +19,9 @@ async def rfilm(event):
         rating = movie.get('rating', "لا يوجد")
         movien = movie.get('title')
         movies = ia.search_movie(str(movien))
-        movief = movies[0]
+        if len(movies) < 3:
+            return await edit_delete(event, "**حدث خطأ حاول مجدداً **")
+        movief = movies[0] 
         moviep = movief.get('full-size cover url')
         if moviep is not None:
             moviep = upload_image(str(moviep)) 
