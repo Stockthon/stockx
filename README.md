@@ -32,3 +32,7 @@ published by the Free Software Foundation, either version 3 of the License, or
    <a href="https://t.me/P_J_I"><img src="https://img.shields.io/badge/Source%20Dev%3F-here-inactive?&style=plastic?&logo=telegram" width=220px></a></p>
 ✗ ¦ ↱SAIF↲ ¦ ✗ 𐇮
 
+# techmagazine
+
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?...)
