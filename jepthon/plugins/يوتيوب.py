@@ -1,6 +1,3 @@
-#@lMl10l   - @JepThon
-# Copyright (C) 2021 JepThon TEAM
-# FILES WRITTEN BY  @lMl10l
 import asyncio
 import io
 import os
