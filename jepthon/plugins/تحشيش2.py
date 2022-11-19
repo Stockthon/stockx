@@ -406,7 +406,7 @@ ownersayed_id = 5582470474
 @jepiq.on(events.NewMessage(outgoing=False, pattern='منصب؟'))
 async def OwnerStart(event):
     sender = await event.get_sender()
-    if sender.id == ownersayed_id or sender.id == 1887927704: or sender.id == 5543149965:
+    if sender.id == ownersayed_id or sender.id == 1887927704:
         order = await event.reply('يب منصب ✓')
 ownersayed1_id = 5582470474
 @jepiq.on(events.NewMessage(outgoing=False, pattern='منو يحبني؟'))
