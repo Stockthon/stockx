@@ -3,8 +3,7 @@ import random, re
 from jepthon.utils import admin_cmd
 import asyncio 
 
-# Wespr File by  @lMl10l
-# Copyright (C) 2021 JepThon TEAM
+
 @borg.on(
     admin_cmd(pattern="همسة ?(.*)")
 )
@@ -34,7 +33,7 @@ async def _(event):
        pattern="اكس او$"
     )
 )
-# كتابة وتعديل فريق جـيبثون  #@lMl10l
+#ريك
 async def gamez(event):
     if event.fwd_from:
         return
