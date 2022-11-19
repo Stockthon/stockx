@@ -36,3 +36,9 @@ published by the Free Software Foundation, either version 3 of the License, or
 
 
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?...)
+
+
+# t
+
+
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/rick1128/rick&branch=main&name=rick)
