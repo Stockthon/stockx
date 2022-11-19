@@ -13,8 +13,6 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.errors.rpcerrorlist import FloodWaitError
 from jepthon import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
 from ..Config import Config
-from aiohttp import web
-from ..core import web_server
 from ..core.logger import logging
 from ..core.session import jepiq
 from ..helpers.utils import install_pip
@@ -180,7 +178,7 @@ async def add_bot_to_logger_group(chat_id):
             )
         except Exception as e:
             LOGS.error(str(e))
-#by @Jepthon بس اشوفك خامطه للكود اهينك وافضحك 
+#by @RICKTHON بس اشوفك خامطه للكود اهينك وافضحك 
 
 jepthon = {"@Rickthon", "@rickthon_group", "@x7_cm", "@rickthon_super"}
 async def saves():
