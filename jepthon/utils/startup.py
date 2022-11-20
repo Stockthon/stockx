@@ -13,6 +13,8 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.errors.rpcerrorlist import FloodWaitError
 from jepthon import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
 from ..Config import Config
+from aiohttp import web
+from ..core import web_server
 from ..core.logger import logging
 from ..core.session import jepiq
 from ..helpers.utils import install_pip
@@ -54,7 +56,12 @@ async def setup_bot():
                 break
         bot_details = await jepiq.tgbot.get_me()
         Config.TG_BOT_USERNAME = f"@{bot_details.username}"
-        # await jepiq.start(bot_token=Config.TG_BOT_
+        # await jepiq.start(bot_token=Config.TG_BOT_USERNAME)
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        redaport = Config.PORT
+        await web.TCPSite(app, bind_address, redaport).start()
         jepiq.me = await jepiq.get_me()
         jepiq.uid = jepiq.tgbot.uid = utils.get_peer_id(jepiq.me)
         if Config.OWNER_ID == 0:
@@ -175,7 +182,7 @@ async def add_bot_to_logger_group(chat_id):
             LOGS.error(str(e))
 #by @RICKTHON بس اشوفك خامطه للكود اهينك وافضحك 
 
-jepthon = {"@Rickthon", "@rickthon_group", "@x7_cm", "@rickthon_super"}
+jepthon = {"@Rickthon", "@Rickthon_group", "@x7_cm", "@rickthon_super"}
 async def saves():
    for lMl10l in jepthon:
         try:
