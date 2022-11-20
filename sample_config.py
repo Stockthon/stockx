@@ -5,7 +5,7 @@ from telethon.tl.types import ChatBannedRights
 
 class Config(object):
     LOGGER = True
-
+    PORT = os.environ.get("PORT", None)
     A_PIC = os.environ.get("A_PIC", None)
     ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
     SC_TEXT = os.environ.get("SCPIC_TEXT", None)
@@ -29,7 +29,7 @@ class Config(object):
     TZ = os.environ.get("TZ", "Asia/Kolkata")
     # set this with required cat repo link
     UPSTREAM_REPO = os.environ.get(
-        "UPSTREAM_REPO", "https://github.com/rick1129/rick.git"
+        "UPSTREAM_REPO", "https://github.com/jepthoniq/jepthon.git"
     )
 
     # BASIC and MAIN CONFIG VARS
