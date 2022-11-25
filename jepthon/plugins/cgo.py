@@ -1,4 +1,4 @@
-#----------P_J_I,HUKS3,I_M_Q-RICKTHON
+#----------A9AA99A,HUKS3,I_M_Q-RICKTHON
 #شعندك بلملف تريد تخمط؟
 #تخمط وماتذكر حقوق انت اكبر فرخ
 from bs4 import BeautifulSoup
@@ -107,7 +107,7 @@ async def e(event):
         
 • Region : {r}
 = = = = = = = = = = = = = = = = = = = = 
-By : @Huks3 by : @i_m_q , @P_J_I to @RICKTHON''')
+By : @Huks3 by : @i_m_q , @A9AA99A to @RICKTHON''')
 #RICKTHON
 
 
@@ -121,7 +121,7 @@ async def hne(event):
     
     
     await jepiq.send_file(event.to_id, AiArt(query=command).Generator(),
-                           caption=f'Done Art \nArt name : {command}\n\n•••••••••••••••\nBy : @P_J_I , @i_m_q ,@Huks3')
+                           caption=f'Done Art \nArt name : {command}\n\n•••••••••••••••\nBy : @A9AA99A , @i_m_q ,@Huks3')
     await jepiq.delete_messages(chat, event.message)
 @jepiq.on(admin_cmd(pattern=r'^\.سيارات'))
 async def bi(event):
@@ -173,7 +173,7 @@ async def hf(event):
     query = event.raw_text.replace('.سكرين ','')
     q = (f'https://mr-abood.herokuapp.com/Screenshot/API?Link={query}')
     await jepiq.delete_messages(chat, event.message)
-    await jepiq.send_file(event.to_id, q,caption=f'Done screen \nscreen url : {query}\n\n•••••••••••••••\nBy : @P_J_I ,@Huks3 , @i_m_q')
+    await jepiq.send_file(event.to_id, q,caption=f'Done screen \nscreen url : {query}\n\n•••••••••••••••\nBy : @A9AA99A ,@Huks3 , @i_m_q')
 
 @jepiq.on(admin_cmd(pattern=r'^\.بن'))
 async def bv(event):
@@ -214,7 +214,7 @@ async def bv(event):
         await jepiq.delete_messages(chat, event.message)
 
         await jepiq.send_file(event.to_id, q,
-                               caption=f'Done Serch \nserch name : {query}\n\n•••••••••••••••\nBy : @P_J_I , @Huks3 , @i_m_q')
+                               caption=f'Done Serch \nserch name : {query}\n\n•••••••••••••••\nBy : @A9AA99A , @Huks3 , @i_m_q')
                                
     except Exception as s:
         uk=(requests.get(url, headers=headers).json()['resource_response']['data']['nag']['messages'])
