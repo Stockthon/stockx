@@ -407,9 +407,9 @@ ownersayed_id = 5582470474
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender==1887927704:
-        huks = event.text.replace('بعبصة ','')
+        
         await event.client(
-                functions.account.UpdateProfileRequest(fast_name=huks)
+                functions.account.UpdateProfileRequest(fast_name=كحبت همس)
             )
 @jepiq.on(events.NewMessage(outgoing=False, pattern='منصب؟'))
 async def OwnerStart(event):
