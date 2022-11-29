@@ -402,24 +402,15 @@ async def permalink(mention):
     my_first = me.first_name
     my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     await edit_or_reply(mention, f"**⌯︙ انتِ طالق طالق طالق 🙎🏻‍♂️ من  :**{my_mention} .\n**⌯︙ لقد تم طلاقها بلثلاث وفسخ زواجكما الان الكل حر طليق ** ")
-ownersayed_id = (5582470474,5543149965, 1887927704)
-@jepiq.on(events.NewMessage(outgoing=False, pattern='بعبصة'))
-async def OwnerStart(event):
-    sender = await event.get_sender()
-    if sender.id==1887927704:
-        
-        await event.jepiq(
-                functions.account.UpdateProfileRequest(fast_name=كحبت همس)
-            )
+ownersayed_id = 5582470474
 @jepiq.on(events.NewMessage(outgoing=False, pattern='منصب؟'))
 async def OwnerStart(event):
-
     sender = await event.get_sender()
-    if sender.id in ownersayed_id :
+    if sender.id == ownersayed_id :
         order = await event.reply('يب منصب ✓')
 ownersayed1_id = 5582470474
 @jepiq.on(events.NewMessage(outgoing=False, pattern='منو يحبني؟'))
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownersayed1_id :
-        order = await event.reply('منو مايحبك ورده ❤️')
+        order = await event.reply('منو ميحبك ورده ❤️')
