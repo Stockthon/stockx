@@ -68,6 +68,7 @@ class Config(object):
     P_TEXT = os.environ.get("P_TEXT", None)
     PMBOT_START_MSSG = os.environ.get("PMBOT_START_MSSG", None)
     VCMODE = os.environ.get("VCMODE", False)
+   # PORT = os.environ.get("PORT", "8080")
     VCMODE = bool(VCMODE and (VCMODE.lower() != "false"))
     VC_SESSION = os.environ.get("VC_SESSION", None)
 
