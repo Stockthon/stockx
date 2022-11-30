@@ -1,1 +1,1 @@
-worker: python3 -m start
+web: bash jepthon
